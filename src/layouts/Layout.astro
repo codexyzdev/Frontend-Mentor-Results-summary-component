@@ -1,0 +1,33 @@
+---
+// Supports weights 100-900
+import '@fontsource-variable/hanken-grotesk'
+interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--btn: linear-gradient(180deg, hsl(252, 100%, 67%) 50%, hsl(241, 81%, 54%) 100%);
+		--circle: linear-gradient(180deg, hsla(256, 72%, 46%, 1) 50%, hsla(241, 72%, 46%, 0) 100%);
+	}
+	html {
+		font-family: 'Hanken Grotesk Variable', sans-serif;
+	}
+</style>

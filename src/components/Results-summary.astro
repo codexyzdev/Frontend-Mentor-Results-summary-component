@@ -1,0 +1,72 @@
+---
+import json from '../../public/data.json'
+---
+
+<section
+	class="grid drop-shadow-md md:mx-auto md:min-h-screen md:max-w-3xl md:grid-cols-2 md:place-content-center"
+>
+	<div
+		class="relative z-30 flex flex-col items-center rounded-b-3xl bg-CobaltBlue text-center md:rounded-3xl"
+	>
+		<h2 class="my-6 text-xl font-bold text-LightLavender">Your Result</h2>
+		<div class="circle mb-6 flex size-36 flex-col justify-center rounded-full font-bold md:size-48">
+			<span class="text-6xl text-White">76</span>
+			<span class="text-LightLavender text-opacity-60">of 100</span>
+		</div>
+		<p class="text-2xl font-bold text-White">Great</p>
+		<p class="te bg mb-6 mt-4 px-12 text-center font-medium text-LightLavender">
+			You scored higher than 65% of the people who have taken these tests.
+		</p>
+	</div>
+	<div
+		class="relative z-20 rounded-e-3xl bg-White p-6 font-bold before:absolute before:-left-5 before:top-0 before:size-9 before:bg-White before:content-[''] after:absolute after:-left-5 after:bottom-0 after:size-9 after:bg-White after:content-['']"
+	>
+		<h2 class="mb-4">Summary</h2>
+		{
+			json.map((resul) => (
+				<div class={`mb-4 flex justify-between rounded-xl p-4 ` + resul.category}>
+					<div class={resul.category + `-text flex gap-4`}>
+						<img src={resul.icon} /> {resul.category}
+					</div>
+					<div class="text-DarkGrayBlue">
+						{resul.score} <span class="text-DarkGrayBlue text-opacity-65"> / 100 </span>
+					</div>
+				</div>
+			))
+		}
+		<button class="w-full rounded-3xl bg-DarkGrayBlue p-4 text-White">Continue</button>
+	</div>
+</section>
+
+<style>
+	.circle {
+		background-image: var(--circle);
+	}
+	.Reaction {
+		background-color: hsla(0, 100%, 67%, 0.1);
+	}
+	.Reaction-text {
+		color: hsla(0, 100%, 67%);
+	}
+
+	.Memory {
+		background-color: hsl(39, 100%, 56%, 0.1);
+	}
+	.Memory-text {
+		color: hsl(39, 100%, 56%);
+	}
+
+	.Verbal {
+		background-color: hsl(166, 100%, 37%, 0.1);
+	}
+	.Verbal-text {
+		color: hsl(166, 100%, 37%);
+	}
+
+	.Visual {
+		background-color: hsl(234, 85%, 45%, 0.1);
+	}
+	.Visual-text {
+		color: hsl(234, 85%, 45%);
+	}
+</style>
